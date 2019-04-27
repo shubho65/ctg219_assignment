@@ -1,75 +1,57 @@
-//Make two functions that sum and subtract two numbers and print it.
+<html>
+<head>
+<meta charset="utf-8">
+<title>Calculator</title>
+</head>
+<body>
+<form method="post" attribute="post" action="">
+<p>First Value:<br/>
+<input type="text" id="first" name="first"></p>
+<p>Second Value:<br/>
+<input type="text" id="second" name="second"></p>
+
+<p></p>
+<button type="submit" name="add" id="add" value="add">+</button>
+<button type="submit" name="subtract" id="subtract" value="subtract">-</button>
+<button type="submit" name="times" id="times" value="times">*</button>
+<button type="submit" name="division" id="division" value="division">/</button>
+<br/>
+</form>
+
 <?php
-function addFunction($num1, $num2) {
-            $sum = $num1 + $num2;
-            echo "Sum of the two numbers is : $sum";
-         }
-         
-       addFunction(10, 20);
-function subFunction($a,$b){
-	if($a>$b)
-	{
-		$result= $a-$b;
-	}
-	else $result= $b-$a;
+if(isset($_POST)){
 	
-	echo "Subtraction of the two numbers is : $result";
+$first = $_POST['first'] + 0;
+$second= $_POST['second'] + 0;
 }
- 
- echo "<br>";
- subFunction(4,7);
-
+if(isset($_POST['add'])){
+	add($first,$second);
+}
+if(isset($_POST['subtract'])){
+	subtract($first,$second);
+}
+if(isset($_POST['times'])){
+	times($first,$second);
+}
+if(isset($_POST['division'])){
+	division($first,$second);
+}
+function add ($num1, $num2){
+	$res = $num1 + $num2;
+	echo "Thehe sum of two numbers:".$res;
+}
+function subtract ($num1, $num2){
+	$res = $num1 - $num2;
+	echo "The subtraction of two numbers:".$res;
+}
+function times ($num1, $num2){
+	$res = $num1 * $num2;
+	echo "The multiplication of two numbers:".$res;
+}
+function division ($num1, $num2){
+	$res = $num1 / $num2;
+	echo "The division of two numbers:".$res;
+}
 ?>
-
-//Take a number and print it reversely till 0.
-<?php
-
- $num=10;
-
-while($num>=0){
-	echo "$num";
-	echo "<br>";
-	$num--;
-}
-?>
-
-//Find even numbers between 1 to 20.
-
-<?php
-
-$num1=1;
-$num2=20;
-$result=[];
-for($num1=1;$num1<=$num2;$num1++){
-	if($num1%2==0){
-		array_push($result,$num1);
-	}
-}
-print_r($result); 
-?>
-
-//Multiplication Table of 22 and 40
-
-<?php
-
-$num1=22;
-$num2=40;
-
-echo "Multiplication table of 22:<br>";
-
-for($i=1;$i<=10;$i++){
-	
-	echo "$num1*$i= ".$i*$num1;
-	echo "<br>";
-}
-
-echo "Multiplication table of 40:<br>";
-for($i=1;$i<=10;$i++){
-	
-	echo "$num2*$i= ".$i*$num2;
-	echo "<br>";
-}
-
-?>
-
-
+</body>
+</html>
